@@ -1,0 +1,16 @@
+#reviews {
+  min-height: 100vh;
+}
+
+#reviews h3 {
+  color: #d64747;
+}
+
+#reviews span {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#reviews span:hover {
+  color: black;
+}

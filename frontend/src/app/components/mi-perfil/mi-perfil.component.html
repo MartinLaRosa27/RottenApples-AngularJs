@@ -1,0 +1,148 @@
+<div id="mi_perfil" class="bg-dark bg-gradient">
+  <!-- CARGANDO -->
+  <div
+    *ngIf="usuario == null || seguidores == null || siguiendo == null"
+    class="cargando pt-5 text-center"
+  >
+    <h3>Cargando...</h3>
+  </div>
+  <!-- CARGANDO -->
+
+  <!-- CARGADO -->
+  <div
+    class="container"
+    *ngIf="seguidores != null && siguiendo != null && usuario != null"
+  >
+  <h1 class="text-center m-0 pt-5">Bienvenido nuevamente, {{usuario[3]}}</h1>
+    <!-- BUSCAR USUARIO -->
+    <div>
+      <h3 class="pt-5 text-center fst-italic">Buscar Usuario</h3>
+      <!-- buscador algun usuario -->
+      <div class="pt-3 formulario">
+        <form class="row g-3" [formGroup]="miFormulario">
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="luna"
+              name="username"
+              formControlName="username"
+            />
+            <small
+              class="text-danger"
+              *ngIf="
+                miFormulario.controls['username'].invalid &&
+                miFormulario.controls['username'].dirty &&
+                miFormulario.controls['username'].touched
+              "
+            >
+              El nombre de usuario a buscar debe tener un mínimo de 3
+              caracteres.
+            </small>
+          </div>
+          <div class="col-auto">
+            <button
+              type="submit"
+              class="btn btn-primary mb-3"
+              [disabled]="miFormulario.invalid"
+              (click)="getBuscarUsuarioConParametros()"
+            >
+              Buscar Usuario
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- buscador algun usuario -->
+      <!-- resultados de la busqueda -->
+      <div
+        *ngIf="usuariosEncontrados != null && usuariosEncontrados.length > 0"
+        class="pt-3"
+      >
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let usuarioEncontrado of usuariosEncontrados"
+          >
+            <span>{{ usuarioEncontrado.username }}</span>
+            <span
+              class="badge bg-success rounded-pill text-uppercase seguir"
+              (click)="postSeguimiento(usuarioEncontrado._id)"
+              >Seguir</span
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        *ngIf="usuariosEncontrados != null && usuariosEncontrados.length == 0"
+        class="pt-3"
+      >
+        <div class="alert alert-info m-0 text-center" role="alert">
+          No se encontraron usuarios con el nombre búscado. Por favor, ingrese
+          un nombre distinto
+        </div>
+      </div>
+      <!-- resultados de la busqueda -->
+    </div>
+    <!-- BUSCAR USUARIO -->
+
+    <!-- SIGUIENDO -->
+    <div>
+      <h3 class="pt-5 text-center fst-italic">Siguiendo</h3>
+      <div class="pt-3" *ngIf="siguiendo.length == 0">
+        <div class="alert alert-info m-0 text-center" role="alert">
+          Empieza a seguir distintos usuarios desde este momento!
+        </div>
+      </div>
+      <div *ngIf="siguiendo.length > 0" class="pt-3">
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let sig of siguiendo"
+          >
+            <span>{{ sig.username }}</span>
+            <span
+              class="badge bg-danger rounded-pill text-uppercase seguir"
+              (click)="deleteSeguimiento(sig._id)"
+              >Eliminar</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- SIGUIENDO -->
+
+    <!-- SEGUIDORES -->
+    <div>
+      <h3 class="pt-5 text-center fst-italic">Seguidores</h3>
+      <div class="pt-3" *ngIf="seguidores.length == 0">
+        <div class="alert alert-info m-0 text-center" role="alert">
+          Aún no tienes seguidores
+        </div>
+      </div>
+      <div *ngIf="seguidores.length > 0" class="pt-3">
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let seg of seguidores"
+          >
+            <span>{{ seg.username }}</span>
+            <span
+              class="badge bg-danger rounded-pill text-uppercase seguir"
+              (click)="patchSeguimientoBloquear(seg._id)"
+              *ngIf="seg.bloqueado == 0"
+              >Bloquear</span
+            >
+            <span
+              class="badge bg-success rounded-pill text-uppercase seguir"
+              (click)="patchSeguimientoDesbloquear(seg._id)"
+              *ngIf="seg.bloqueado == 1"
+              >Desloquear</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- SEGUIDORES -->
+  </div>
+  <!-- CARGADO -->
+</div>

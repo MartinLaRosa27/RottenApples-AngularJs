@@ -1,0 +1,36 @@
+#mi_perfil {
+  min-height: 100vh;
+}
+
+#mi_perfil h3,
+h1 {
+  color: #d64747;
+}
+
+#mi_perfil h1 {
+  color: #d64747;
+  font-weight: bold;
+}
+
+#mi_perfil .formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mi_perfil button {
+  color: black;
+  background: #d64747;
+  border: 1px solid black;
+  transition: 0.5s;
+}
+
+#mi_perfil button:hover {
+  color: #d64747;
+  background: black;
+  border: 1px solid #d64747;
+}
+
+#mi_perfil .seguir {
+  cursor: pointer;
+}

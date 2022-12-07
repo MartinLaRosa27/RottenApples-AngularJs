@@ -1,0 +1,16 @@
+#global {
+  min-height: 100vh;
+}
+
+#global h3 {
+  color: #d64747;
+}
+
+#global span {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#global span:hover {
+  color: black;
+}
