@@ -45,7 +45,7 @@ INSERT INTO pelicula(titulo, anio, img) VALUES
 
 INSERT INTO usuario(username, email, password, administrador) VALUES
 ("administrador01", "administrador01@mail.com", "$2y$10$J/tVsqACxzI2sf7Le42Ytuf0muROZCqMY.YGyjR34ASMnOigLVrtu", 1),
-("luna0018", "luna0018@mail.com", "$2y$10$RQNGPoMkRWPlTG7OkGkLeufGsbnZpiyrdiqrREXj58fDpBHQpL.9W", 0),
+("dibuMartinez23", "dibuMartinez23@mail.com", "$2y$10$d4wtNFXxCrrkYYWxiSFTjusBGJ2HbHZgk682WgjNBxWFrK2MbHm7C", 0),
 ("messi2022", "messi2022@mail.com", "$2y$10$R14VpDs3GPnVHdi7Iig8AeIZM2TIU14nmRjy7WHA.zezkj0lr3rK6", 0),
 ("ronaldo07", "ronaldo07@mail.com", "$2y$10$drzMTXqgN49wcanvn4UV4uwcvvqeeoB6lG75HoSor1KtzPn1IaAp6", 0);
 
