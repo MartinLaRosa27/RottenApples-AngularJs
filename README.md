@@ -6,7 +6,6 @@ Aparte, los usuarios con privilegios de administrador van a poder agregar nuevas
 HTML / CSS / Bootstrap / AngularJs / PHP / MySQL / JWT
 
 # Información General
-'''
 1.	El usuario va a poder registrarse e iniciar sesión.
 2.	El usuario va a poder publicar su opinión de las películas vio.
 3.	El usuario va a poder eliminar y modificar las reviews que publico.
@@ -25,4 +24,3 @@ HTML / CSS / Bootstrap / AngularJs / PHP / MySQL / JWT
 16.	No se puede crear una película que tenga el mismo nombre, que una película ya registrada.
 17.	El listado de las películas se va a obtener a través de cierta información que se encuentra registrada en la base de datos.
 18.	Las contraseñas de todos los usuarios se van a encontrar hasheadas, para resguardar la seguridad de todas las cuentas.
-'''
